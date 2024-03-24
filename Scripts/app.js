@@ -269,3 +269,35 @@ function calcularDistancia(lat1, lon1, lat2, lon2, unit) {
       if (unit === "N") { dist = dist * 0.8684 }
       return dist;
 }
+
+function trabalhandoComDatetimes(){
+    const hoje = new Date()
+    hoje.getDate() // O dia do mês
+    hoje.getDay() // O valor inteiro do dia da semana
+    hoje.getFullYear() // O ano com quatro dígitos
+    hoje.getHours() // A hora do dia
+    hoje.getMilliseconds() // O número de milissegundos desde o ultimo segundo
+    hoje.getMinutes() // O número de minutos desde a última hora
+    hoje.getMonth() // o mês do ano
+    hoje.getTime() // O número de milissegundos desde a meia noite de 1° de janeiro de 1970
+    hoje.TolocaleString() // A data e hora local em formato de string
+
+    const hoje2 = new Date()
+    const dia = hoje2.getDate().toString().padStart(2,'0')
+    const mes = String(hoje2.getMonth() + 1).padStart(2,'0')
+    const ano = hoje2.getFullYear()
+    const dataAtual = `${dia} / ${mes} / ${ano}`
+
+    const aniversario = new Date("December 17, 1995 03:24:00");
+    const aniversario1 = new Date("1995-12-17T03:24:00");
+    const aniversario2 = new Date(1995, 11, 17);
+    
+    const [ano, mes, dia, hora, minuto, segundo, milissegundo] = [2022,02,21,09,58,0,35]
+    const data1 = new Date(ano,mes,dia,hora,minuto,segundo,milissegundo)
+    const data2 = new Date(ano,mes,dia,hora,minuto,segundo,milissegundo)
+    console.log(+data1)
+    console.log(+data1 == +data2)
+
+
+}
+
