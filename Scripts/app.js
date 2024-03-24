@@ -14,7 +14,10 @@ $(document).ready(function () {
     //javascriptString();
     //javascriptNumbers();
     //manipulandoDOM();
-    tiposDeConsole();
+    //tiposDeConsole();
+    
+    const distanceInKm = calcularDistancia(52.5200, 13.4050, 48.8566, 2.3522, "K");
+    console.log(`A distância entre Berlim e Paris é de ${distanceInKm} km.`);
 });
 
 function tiposDeConsole(){
@@ -248,4 +251,21 @@ var exibeMensagem = function() {
     console.log(global);
     console.log(usoInterno);
     console.log(usoInternoInitialize);
+}
+
+//A fórmula Haversine é uma fórmula matemática que é usada para calcular a distância entre dois pontos em uma esfera.
+function calcularDistancia(lat1, lon1, lat2, lon2, unit) {
+      const radlat1 = Math.PI * lat1/180;
+      const radlat2 = Math.PI * lat2/180;
+      const radlon1 = Math.PI * lon1/180;
+      const radlon2 = Math.PI * lon2/180;
+      const theta = lon1-lon2;
+      const radtheta = Math.PI * theta/180;
+      let dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+      dist = Math.acos(dist);
+      dist = dist * 180/Math.PI;
+      dist = dist * 60 * 1.1515;
+      if (unit === "K") { dist = dist * 1.609344 }
+      if (unit === "N") { dist = dist * 0.8684 }
+      return dist;
 }
